@@ -1,0 +1,22 @@
+.messagegreen {
+background-color: green;
+position:fixed;
+top:0;
+width:100%;
+z-index:100;
+}
+
+.messagered {
+background-color: red;
+
+}
+
+#message {
+    text-align: center;
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
+    color: white;
+    font-size: 1.7em;
+}
