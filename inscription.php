@@ -30,11 +30,6 @@ if(isset($valider)){
 
 
 ?>
-
-<?php
-include('header.html');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,9 +39,15 @@ include('header.html');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
 </head>
-<header>
-</header>
+
 <body>
+
+<header>
+<?php
+include('header.html');
+?>
+</header>
+
 <main>
 
 <div class = registertitle>Inscription</div>
@@ -69,7 +70,11 @@ include('header.html');
 <div class = alreadyregister>
 <p>Déjâ inscrit ? <br> <br><a href ="login.php"> Se connecter à un compte existant</a> </p>
 </div>
+
 <footer>
+<?php
+include('footer.html');
+?>
 </footer>
 </body>
 </html>

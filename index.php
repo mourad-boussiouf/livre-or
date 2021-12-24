@@ -20,12 +20,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
 </head>
+<body>
 <header>
 <?php
 include('header.html');
 ?>
 </header>
-<body>
+
+
 <div class = indexbanner>
 <div class = index1>
 <h1> Bienvenue sur le livre d'or des amis de oui-oui !<h1>
@@ -46,7 +48,13 @@ include('header.html');
 <br>
 <br></div>
 
+<footer>
+<?php
+include('footer.html');
+?>
+</footer>
 
 
 </body>
+
 </html>

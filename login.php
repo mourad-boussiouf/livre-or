@@ -24,10 +24,6 @@ if(isset($valider)) {
 }
 ?>
 
-<?php
-include('header.html');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +34,12 @@ include('header.html');
 
     <title>Login</title>
 </head>
-
+<header>
+<?php
+include('header.html');
+?>
+</header>
+<main>
 <body onLoad="document.fo.login.focus()">
 <div class = logintitle>Connexion</div>
 <div class = loginform>
@@ -52,5 +53,11 @@ include('header.html');
     <p>Pas de compte ?</p><a href = "inscription.php"> S'inscrire </a>
 </form>
 </div>
+</main>
+<footer>
+<?php
+include('footer.html');
+?>
+</footer>
 </body>
 </html>

@@ -16,7 +16,7 @@ include("connection.php");
 if(isset($_SESSION['login'])){
     include ('loggedbar.php');
 
-    $getuser=$pdo->prepare("SELECT * from utilisateurs");
+    $getuser=$pdo->prepare("SELECT * from utilisateurs WHERE id = $id ");
     $getuser->execute();
     $resultuser = $getuser->fetch();
     $id_utilisateur = $resultuser['id'] ;
@@ -33,7 +33,7 @@ if(isset($addcomment)){
         else{
             $ins=$pdo->prepare("INSERT into commentaires (commentaire, id_utilisateur, date) VALUES (?,?,NOW())");
             $ins->execute(array($comment,$id_utilisateur));
-            $message="<li><div class= messagegreen>Votre message est bien enrengistré, vous allez être redirigé vers le livre d'or.</div></li>";
+            $message="<div class= messagegreen>Votre message est bien enrengistré, vous allez être redirigé vers le livre d'or.</div>";
         header("Refresh:4; url=livre-or.php");
         echo ($message);
         }

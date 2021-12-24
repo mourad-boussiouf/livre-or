@@ -40,8 +40,13 @@ while($i=$display->fetch()){
 echo '<div class = comments><div class = infocomm> <p> posté par <b>'. '  '. $i['login'].' '. '</b>le'.' '. $i['date'].':'. '<br> </p></div>';
 echo  '<div class = contentcomm>'.$i["commentaire"].'<br></div></div>' ;
 }
-
-
 ?>
+
+<footer>
+<?php
+include('footer.html');
+?>
+</footer>
 </body>
+
 </html>

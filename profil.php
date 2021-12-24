@@ -134,8 +134,13 @@ Modification des identifiants de votre profil :
 <input type = "password" name = "passwordconfirm" /> 
 <div class = modifypasswordbutton><input type = "submit" name = "changepassword" value = "Modifier" /> </div>
 </form></div>
-
 </main>
+
+<footer>
+<?php
+include('footer.html');
+?>
+</footer>
 
 </body>
 </html>
