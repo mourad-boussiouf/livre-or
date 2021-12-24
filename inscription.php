@@ -3,6 +3,7 @@
 @$password=$_POST['password'];
 @$passwordconfirm=$_POST['passwordconfirm'];
 @$valider=$_POST['valider'];
+
 $message="";
 if(isset($valider)){
     if(empty($login)) $message="<li><div class= messagered> Vous devez entrer un login</div></li>";
@@ -20,17 +21,18 @@ if(isset($valider)){
             $ins=$pdo->prepare("INSERT into utilisateurs(login,password) VALUES (?,?)");
             $ins->execute(array($login, md5($password)));
             $message="<li><div class= messagegreen> Inscription réussie ! Vous allez être redirigé vers la page de connexion.</div></li>";
-        header("Refresh:2; url=login.php");
+        header("Refresh:1.5; url=login.php");
         }
     }
 }
 
 
 
-var_dump(PDO::getAvailableDrivers());
 
+?>
 
-
+<?php
+include('header.html');
 ?>
 
 <!DOCTYPE html>
@@ -42,26 +44,31 @@ var_dump(PDO::getAvailableDrivers());
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
 </head>
-<body>
 <header>
 </header>
+<body>
+<main>
 
-<h1>Inscription</h1>
+<div class = registertitle>Inscription</div>
+<div class = registerform>
 
 <form name ="registerform" method = "POST" action = "#" enctype = "multipart/form-data">
-    <div class ="label"> Login </div>
-    <input type = "text" name="login" value = Login />           
+<div class ="label"> Login </div>
+    <input type = "text" name="login" value = '' placeholder = Login />           
     <div class = "label"> Mot de passe </div>
-    <input type = "password" name ="password" value = "Mot de passe" />
+    <input type = "password" name ="password" value = "" />
     <div class = "label"> Confirmation mot de passe </div>
-    <input type = "password" name ="passwordconfirm" value = "Répéter Mot de passe" />      <br>
-    <input type = "submit" name = "valider" value = "S'inscrire" />
+    <input type = "password" name ="passwordconfirm" value = "" />      <br>
+    <div class =registerbutton> <input type = "submit" name = "valider" value = "S'inscrire" /> </div>
 </form>
+</div>
+
 <?php if(!empty($message)){ ?>
 <div id="message"><?php echo $message ?></div>
 <?php } ?>
-<a href ="login.php"> Déjâ inscrit ?</a>
-
+<div class = alreadyregister>
+<p>Déjâ inscrit ? <br> <br><a href ="login.php"> Se connecter à un compte existant</a> </p>
+</div>
 <footer>
 </footer>
 </body>

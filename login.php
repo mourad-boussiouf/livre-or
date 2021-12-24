@@ -11,15 +11,21 @@ if(isset($valider)) {
     $res->setFetchMode(PDO::FETCH_ASSOC);
     $res->execute(array($login, md5($password)));
     $tab=$res->fetchAll();
-    if (count($tab) == 0)
-    $message="<li>Mauvais login ou mot de passe </li>";
+    if (count($tab) == 0){
+    $message="<div class = messagered> Mauvais login ou mot de passe (attention aux majuscules).</div>";
+    echo ($message);}
     else {
         $_SESSION ["autoriser"] = "oui";
         $_SESSION ["login"]=strtoupper($tab [0]["login"]);
+        $_SESSION ["id"]=strtoupper($tab [0]["id"]);
         header("location:profil.php");
     }
 
 }
+?>
+
+<?php
+include('header.html');
 ?>
 
 <!DOCTYPE html>
@@ -34,13 +40,17 @@ if(isset($valider)) {
 </head>
 
 <body onLoad="document.fo.login.focus()">
+<div class = logintitle>Connexion</div>
+<div class = loginform>
 <form name ="loginform" method = "POST" action = "#" enctype = "multipart/form-data">
     <div class ="label"> Login </div>
-    <input type = "text" name="login" value = Login />           
+    <input type = "text" name="login" value = "" placeholder = Login />           
     <div class = "label"> Mot de passe </div>
-    <input type = "password" name ="password" value = "Mot de passe" /> <br>
-    <input type = "submit" name = "valider" value = "Se connecter" />
+    <input type = "password" name ="password" value = ""  /> <br>
+
+   <div class = connectbutton> <input type = "submit" name = "valider" value = "Se connecter" /> </div>
     <p>Pas de compte ?</p><a href = "inscription.php"> S'inscrire </a>
 </form>
+</div>
 </body>
 </html>
